@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.xml.sax.ErrorHandler;
 import team.taskapp.ui.AddTaskWindow;
 
 //Class for the main application window
@@ -16,13 +17,18 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+//        Thread.setDefaultUncaughtExceptionHandler(
+//                (thread, exception) -> exception.printStackTrace()
+//        );
+
         App.start(stage);
 
-        }
+    }
 
     //This is the main function that is required for the java programming language
     //similar to C
     public static void main(String[] args) {
         launch(args);
+
     }
 }

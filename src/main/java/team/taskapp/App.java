@@ -15,6 +15,7 @@ public class App {
 
     private static Stage stage;
     private static Scene scene;
+
     
     private static View view;
 
