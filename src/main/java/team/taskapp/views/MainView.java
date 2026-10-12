@@ -1,16 +1,8 @@
 package team.taskapp.views;
 
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import team.taskapp.ui.AddTaskWindow;
-import team.taskapp.utils.fxmlLoader;
-
-import java.io.IOException;
+import team.taskapp.utils.fxmlUtils;
 
 public class MainView extends View{
 
@@ -23,6 +15,6 @@ public class MainView extends View{
 
     @Override
     public void onShow() {
-        root.getChildren().add(fxmlLoader.load("/views/MainView.fxml"));
+        root.getChildren().add(fxmlUtils.load( fxmlUtils.getFilePath(MainView.class) ));
     }
 }
