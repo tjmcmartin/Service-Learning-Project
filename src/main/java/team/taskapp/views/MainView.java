@@ -2,7 +2,7 @@ package team.taskapp.views;
 
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
-import team.taskapp.utils.fxmlUtils;
+import team.taskapp.utils.fileUtils;
 
 public class MainView extends View{
 
@@ -15,6 +15,6 @@ public class MainView extends View{
 
     @Override
     public void onShow() {
-        root.getChildren().add(fxmlUtils.load( fxmlUtils.getFilePath(MainView.class) ));
+        root.getChildren().add(fileUtils.loadFXML( fileUtils.getFilePath(MainView.class) ));
     }
 }
