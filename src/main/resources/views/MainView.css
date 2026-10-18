@@ -1,0 +1,166 @@
+
+/* All */
+.app-title{
+    -fx-background-color: #151922;
+}
+
+
+
+#sidebar {
+    -fx-background-color: #222938;
+}
+
+/* Sidebar title*/
+.app-title{
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #A5B4FC;
+}
+
+/* Section headings */
+.section-title{
+    -fx-font-size: 11px;
+    -fx-text-fill: #8792A8;
+    -fx-padding: 8 0 8 2;
+}
+
+/* Navigation button */
+.nav-button{
+    -fx-background-color: transparent;
+    -fx-text-fill: #C5CCDA;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 6;
+    -fx-alignment: center-left;
+    -fx-max-width: infinity;
+    -fx-cursor: hand;
+}
+
+/* Hover effect */
+.nav-button:hover {
+    -fx-background-color: #353D50;
+    -fx-text-fill: #FFFFFF;
+}
+
+
+
+
+
+/* DASHBORD */
+.dashboard {
+    -fx-background-color: #F5F7FB;
+    -fx-padding: 30px;
+}
+
+/* Dashboard title */
+.dashboard-title{
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222938;
+}
+
+/* Cashbord subtitle */
+.dashboard-subtitle{
+    -fx-font-size: 14px;
+    -fx-text-fill: #8792A8;
+}
+
+/* Task section */
+.task-section{
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 24px;
+    -fx-border-radius: 12px;
+}
+
+/* My Tasks heading */
+.my-tasks-heading{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222938;
+}
+
+/* Add Task button */
+.add-task-button{
+    -fx-background-color: #A5B4FC;
+    -fx-text-fill: #222938;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 16;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+}
+
+/* Button hover */
+.add-button:hover {
+    -fx-background-color: #818CF8;
+}
+
+/* Space between tasks button and My task */
+.task-header{
+    -fx-spacing: 20px;
+    -fx-alignment: center-left;
+}
+
+/* Dashboard cards */
+.dashboard-card{
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 20px;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-color: #E9E9E7;
+    -fx-border-width: 1px;
+    -fx-min-width: 220px;
+    -fx-pref-width: 300px;
+}
+
+/* Card label */
+.stat-label{
+    -fx-font-size: 13px;
+    -fx-text-fill: #8792A8;
+    -fx-font-weight: normal;
+}
+
+/* Card numbers */
+.stat-number{
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222938;
+}
+
+
+
+
+
+
+
+
+
+/* dashbord background */
+.root {
+    -fx-background-color: #F7F8FC;
+}
+
+/* Navigation hover */
+.nav-button:hover {
+    -fx-background-color: #343D55;
+    -fx-background-radius: 8px;
+}
+
+/* Add Task button hover */
+.add-task-button:hover {
+    -fx-background-color: #818CF8;
+}
+
+/* Statistics card */
+.stat-card{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 1px;
+
+    -fx-padding: 24px;
+    -fx-spacing: 12px;
+    -fx-min-height: 130px;
+    -fx-max-height: infinity;
+}

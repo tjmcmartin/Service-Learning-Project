@@ -6,18 +6,79 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="team.taskapp.views.MainViewController"
-            stylesheets="MainView.css"
-            prefHeight="400.0" prefWidth="600.0">
-
-    <VBox fx:id="taskList">
-        <HBox>
-            <Label fx:id="label" text="Current Tasks"/>
-            <Button text="+" onAction="#onButtonClick" />
-        </HBox>
-    </VBox>
+            stylesheets="@MainView.css"
+            prefHeight="650.0" prefWidth="1000.0">
+    <center>
+        <VBox spacing="30.0" style="-fx-padding: 32px 40px 32px 40px;">
+            <!-- Dashbord title -->
+            <Label text="Dashboard" style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
 
 
-</AnchorPane>
+            <!-- subtitle -->
+            <Label text="Manage your tasks and stay focused" style="-fx-font-size: 14px; -fx-text-fill: #8792A8;"/>
+
+            
+
+
+            <!-- Dashbord statistics -->
+            <GridPane hgap="20.0" vgap="20.0" maxWidth="700.0">
+
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50.0"/>
+                    <ColumnConstraints percentWidth="50.0"/>
+                </columnConstraints>
+
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="stat-card">
+                    <Label text="Total Tasks" styleClass="stat-label"/>
+                    <Label text="0" styleClass="stat-number"/>
+                </VBox>
+
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="stat-card">
+                    <Label text="In Progress" styleClass="stat-label"/>
+                    <Label text="0" styleClass="stat-number"/>
+                </VBox>
+
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="stat-card">
+                    <Label text="Completed" styleClass="stat-label"/>
+                    <Label text="0" styleClass="stat-number"/>
+                </VBox>
+
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="stat-card">
+                    <Label text="Due Soon" styleClass="stat-label"/>
+                    <Label text="0" styleClass="stat-number"/>  
+                </VBox>
+            </GridPane>
+
+
+
+            <!-- Task list -->
+            <VBox fx:id="taskList" spacing="12.0">
+
+                <HBox spacing="20.0" alignment="CENTER_LEFT" styleClass="task-header">
+                    <Label fx:id="label" text="My Tasks" styleClass="my-tasks-heading" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+                    <Button text="+ Add Task" onAction="#onButtonClick" styleClass="add-task-button"/>
+                </HBox>
+
+            </VBox>
+        </VBox>
+    </center>
+
+    <left>
+        <VBox fx:id="sidebar" prefWidth="220.0" spacing="12.0" maxHeight="Infinity" style="-fx-padding: 24;">
+            <Label text="DevFlow" styleClass="app-title"/>
+            <Label text="WORKSPACE" styleClass="section-title"/>
+            <Button text="My Tasks" styleClass="nav-button"/>
+            <Button text="Projects" styleClass="nav-button"/>
+            <Button text="Calendar" styleClass="nav-button"/>
+            <Button text="Statistics" styleClass="nav-button"/>
+        </VBox>
+    </left>
+        
+        
+
+
+</BorderPane>
