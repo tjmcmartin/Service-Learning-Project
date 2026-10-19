@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import team.taskapp.ui.AddTaskWindow;
+import team.taskapp.utils.fileUtils;
 import team.taskapp.views.MainView;
 import team.taskapp.views.View;
 
@@ -22,6 +23,7 @@ public class App {
     public static void start(Stage stg) {
         stage = stg;
         scene = new Scene(new Pane());
+        scene.getStylesheets().add( fileUtils.loadMainCSS() );
 
         stage.setTitle("Task App");
         stage.setScene(scene);

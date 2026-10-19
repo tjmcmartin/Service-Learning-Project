@@ -15,6 +15,6 @@ public class MainView extends View{
 
     @Override
     public void onShow() {
-        root.getChildren().add(fileUtils.loadFXML( fileUtils.getFilePath(MainView.class) ));
+        root.getChildren().add(fileUtils.loadFXML( MainView.class ));
     }
 }
