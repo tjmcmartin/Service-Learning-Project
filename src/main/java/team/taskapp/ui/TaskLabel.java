@@ -16,12 +16,6 @@ public class TaskLabel extends HBox {
 
         this.getStylesheets().add( fileUtils.loadCSS(this.getClass()) );
 
-        btnComplete.setOnAction(e -> {
-            System.out.println("Task Complete!");
-            //TODO this is where this object should get deleted somehow
-            //maybe have the parent handle the event for deleting?
-        });
-
         this.getChildren().addAll(this.btnComplete, this.task);
 
 
