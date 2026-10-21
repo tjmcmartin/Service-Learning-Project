@@ -60,7 +60,7 @@
                 <HBox spacing="20.0" alignment="CENTER_LEFT" styleClass="task-header">
                     <Label fx:id="label" text="My Tasks" styleClass="my-tasks-heading" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
 
-                    <Button text="+ Add Task" onAction="#onButtonClick" styleClass="add-task-button"/>
+                    <Button text="+ Add Task" onAction="#addTask" styleClass="add-task-button"/>
                 </HBox>
 
             </VBox>
