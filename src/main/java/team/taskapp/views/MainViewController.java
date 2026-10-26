@@ -15,7 +15,9 @@ public class MainViewController {
         //TODO change this to actually add tasks
         AddTaskWindow window = new AddTaskWindow();
         window.showAndWait();
-        taskList.getChildren().add(new TaskLabel(window.getTaskName()));
+        if (window.getTaskName() != null) {
+            taskList.getChildren().add(new TaskLabel(window.getTaskName()));
+        }
     }
 
 }
