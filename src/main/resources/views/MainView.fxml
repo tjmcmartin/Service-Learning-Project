@@ -71,7 +71,7 @@
         <VBox fx:id="sidebar" prefWidth="220.0" spacing="12.0" maxHeight="Infinity" style="-fx-padding: 24;">
             <Label text="DevFlow" styleClass="app-title"/>
             <Label text="WORKSPACE" styleClass="section-title"/>
-            <Button text="My Tasks" styleClass="nav-button"/>
+            <Button text="My Tasks" styleClass="nav-button" onAction="#toMyTasks"/>
             <Button text="Projects" styleClass="nav-button"/>
             <Button text="Calendar" styleClass="nav-button"/>
             <Button text="Statistics" styleClass="nav-button"/>
