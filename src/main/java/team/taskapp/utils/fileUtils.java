@@ -2,9 +2,12 @@ package team.taskapp.utils;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 import team.taskapp.App;
+import team.taskapp.MainController;
 import team.taskapp.views.View;
 
+import javax.management.RuntimeErrorException;
 import java.io.IOException;
 
 public class fileUtils {
@@ -15,7 +18,28 @@ public class fileUtils {
             FXMLLoader loader = new FXMLLoader(fileUtils.class.getResource(path));
             return loader.load();
         } catch (IOException e) {
-            throw new RuntimeException("Failed to loadFXML FXML: "+path, e);
+            throw new RuntimeException("Failed to load FXML: "+path, e);
+        }
+    }
+
+    public static Parent loadMainFXML() {
+        String path = "/MainApp.fxml";
+        try {
+            FXMLLoader loader = new FXMLLoader(fileUtils.class.getResource(path));
+
+            //TODO maybe improve this? There has to be a better way?
+
+            var load = loader.load();
+
+            var controller = loader.getController();
+            System.out.println(controller);
+            AnchorPane mainContent = ((MainController) controller).getMainContent();
+
+            App.setMainContent(mainContent);
+
+            return (Parent) load;
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to load FXML: "+path, e);
         }
     }
 
