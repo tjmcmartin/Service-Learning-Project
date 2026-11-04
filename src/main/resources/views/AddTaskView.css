@@ -1,0 +1,56 @@
+.form-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #243B5A;
+}
+
+.form-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #344767;
+}
+
+.form-input {
+    -fx-pref-height: 38px;
+    -fx-background-color: #F8FAFD;
+    -fx-background-radius: 7px;
+    -fx-border-color: #DCE5F0;
+    -fx-border-radius: 7px;
+}
+
+.subtask-row {
+    -fx-padding: 6px;
+    -fx-background-color: #F8FAFD;
+    -fx-background-radius: 7px;
+}
+
+.subtask-input {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.add-subtask-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #3976C6;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.cancel-button {
+    -fx-background-color: #EDF1F5;
+    -fx-text-fill: #344767;
+    -fx-padding: 10px 18px;
+    -fx-background-radius: 7px;
+}
+
+.create-task-button {
+    -fx-background-color: #3268B0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 18px;
+    -fx-background-radius: 7px;
+}
+
+.create-task-button:hover {
+    -fx-background-color: #254F88;
+}
