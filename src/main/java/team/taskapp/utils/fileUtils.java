@@ -32,7 +32,6 @@ public class fileUtils {
             var load = loader.load();
 
             var controller = loader.getController();
-            System.out.println(controller);
             AnchorPane mainContent = ((MainController) controller).getMainContent();
 
             App.setMainContent(mainContent);

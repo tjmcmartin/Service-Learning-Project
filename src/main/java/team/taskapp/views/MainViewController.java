@@ -12,7 +12,7 @@ public class MainViewController {
     private VBox taskList;
 
     @FXML
-    private void addTask() {
+    public void addTask() {
         //TODO change this to actually add tasks
         AddTaskWindow window = new AddTaskWindow();
         window.showAndWait();

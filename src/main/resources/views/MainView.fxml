@@ -18,217 +18,158 @@
 
             prefWidth="1200.0"
             prefHeight="800.0">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="top-header" style="-fx-padding: 10px 40px 10px 40px;">
 
+            <!-- Page Title -->
+            <Label text="Dashboard"/>
 
-    <!-- LEFT: Sidebar -->
-    <left>
+            <!-- Flexible Space -->
+            <Region HBox.hgrow="ALWAYS"/>
 
-        <VBox fx:id="sidebar" prefWidth="230.0" minWidth="65.0" spacing="20.0" styleClass="sidebar">
+            <!-- Search Bar -->
+            <TextField fx:id="searchField" promptText="Search tasks and projects..." prefWidth="280.0" minWidth="100.0" maxWidth="350.0" styleClass="search-field"/>
+        </HBox>
+    </top>
 
-            <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-header">
-                <Label text="DevFlow" styleClass="sidebar-title"/>
-            </HBox>
-
-            <!-- Workspace -->
-            <VBox spacing="12.0">
-
-                <Label text="WORKSPACE"
-                    styleClass="sidebar-section-title"/>
-
-                <Button text="Today"
-                        maxWidth="Infinity"
-                        styleClass="sidebar-item"/>
-
-                <Button text="All Tasks"
-                        maxWidth="Infinity"
-                        styleClass="sidebar-item"/>
-
-                <Button text="Schedule"
-                        maxWidth="Infinity"
-                        styleClass="sidebar-item"/>
-
-                <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="stat-card">
-                    <Label text="Due Soon" styleClass="stat-label"/>
-                    <Label text="0" styleClass="stat-number"/>  
-                </VBox>
-            </VBox>
-
-
-
-            <!-- Task list -->
-            <VBox fx:id="taskList" spacing="12.0">
-
-                <HBox spacing="20.0" alignment="CENTER_LEFT" styleClass="task-header">
-                    <Label fx:id="label" text="My Tasks" styleClass="my-tasks-heading" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
-
-                    <Button text="+ Add Task" onAction="#addTask" styleClass="add-task-button"/>
-                </HBox>
-
-            </VBox>
-
-        </VBox>
-    </left>
-
-    <!-- CENTER: Main Content -->
+    <!-- CENTER: Main Dashboard Content Area -->
     <center>
-        <BorderPane>
-            <!-- TOP: Header -->
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
+            <VBox spacing="25.0" styleClass="dashboard-content" style="-fx-padding: 30 40 40 40;">
 
-            <top>
-                <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="top-header" style="-fx-padding: 10px 40px 10px 40px;">
+                <!-- Today's Dashboard -->
+                <HBox alignment="CENTER_LEFT" spacing="20.0" prefHeight="65.0" styleClass="top-header">
 
-                    <!-- Page Title -->
-                    <Label text="Dashboard"/>
+                    <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                        <Label text="Today's Dashboard" styleClass="dashboard-title"/>
 
-                    <!-- Flexible Space -->
-                    <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="Your daily tasks, upcoming deadlines, progress, and recent projects at a glance." wrapText="true" styleClass="dashboard-subtitle"/>
+                    </VBox>
 
-                    <!-- Search Bar -->
-                    <TextField fx:id="searchField" promptText="Search tasks and projects..." prefWidth="280.0" minWidth="100.0" maxWidth="350.0" styleClass="search-field"/>
+                    <Button text="Add Task" styleClass="primary-button" onAction="#addTask"/>
                 </HBox>
-            </top>
 
-            <!-- CENTER: Main Dashboard Content Area -->
-            <center>
-                <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
-                    <VBox spacing="25.0" styleClass="dashboard-content" style="-fx-padding: 30 40 40 40;">
 
-                        <!-- Today's Dashboard -->
-                        <HBox alignment="CENTER_LEFT" spacing="20.0" prefHeight="65.0" styleClass="top-header">
+                <!-- Summary cards for tasks -->
+                <FlowPane fx:id="summaryCards" hgap="15.0" vgap="15.0" alignment="TOP_LEFT">
 
-                            <VBox spacing="8.0" HBox.hgrow="ALWAYS">
-                                <Label text="Today's Dashboard" styleClass="dashboard-title"/>
+                    <!-- Card 1 -->
+                    <VBox prefWidth="210.0" prefHeight="120.0" spacing="10.0" styleClass="summary-card">
 
-                                <Label text="Your daily tasks, upcoming deadlines, progress, and recent projects at a glance." wrapText="true" styleClass="dashboard-subtitle"/>
-                            </VBox>
+                        <Label text="Today's Tasks" styleClass="card-title"/>
 
-                            <Button text="Add Task" styleClass="primary-button" onAction="#addTask"/>
+                        <Label text="8" styleClass="card-number"/>
+
+                        <Label text="3 completed" styleClass="card-description"/>
+                    </VBox>
+
+                    <!-- Card 2 -->
+                    <VBox prefWidth="210.0" prefHeight="120.0" spacing="10.0" styleClass="summary-card">
+
+                        <Label text="Upcoming Deadlines" styleClass="card-title"/>
+
+                        <Label text="4" styleClass="card-number"/>
+
+                        <Label text="Within 7 days" styleClass="card-description"/>
+                    </VBox>
+
+                    <!-- Card 3 -->
+                    <VBox prefWidth="210.0" prefHeight="120.0" spacing="10.0" styleClass="summary-card">
+
+                        <Label text="Overdue Tasks" styleClass="card-title"/>
+
+                        <Label text="2" styleClass="card-number"/>
+
+                        <Label text="Need attention" styleClass="card-description"/>
+                    </VBox>
+
+                    <!-- Card 4 -->
+                    <VBox prefWidth="210.0" prefHeight="120.0" spacing="10.0" styleClass="summary-card">
+
+                        <Label text="Progress Overview" styleClass="card-title"/>
+
+                        <Label text="65%" styleClass="card-number"/>
+
+                        <ProgressBar progress="0.65" maxWidth="Infinity"/>
+                    </VBox>
+
+                </FlowPane>
+
+                <!-- Main Dashboard Content -->
+                <FlowPane fx:id="dashboardPanels" hgap="20.0" vgap="20.0" alignment="TOP_LEFT">
+
+
+                    <!-- Left Panel: Today's Tasks -->
+                    <VBox fx:id="taskPanel" spacing="15.0" prefWidth="500.0" minWidth="280.0" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="dashboard-panel">
+
+
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label text="Today's Tasks" styleClass="panel-title"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+
+                            <Button text="View All" styleClass="text-button"/>
                         </HBox>
 
-
-                        <!-- Summary cards for tasks -->
-                        <FlowPane fx:id="summaryCards" hgap="15.0" vgap="15.0" alignment="TOP_LEFT">
-
-                            <!-- Card 1 -->
-                            <VBox prefWidth="210.0" prefHeight="120.0" spacing="10.0" styleClass="summary-card">
-
-                                <Label text="Today's Tasks" styleClass="card-title"/>
-
-                                <Label text="8" styleClass="card-number"/>
-
-                                <Label text="3 completed" styleClass="card-description"/>
-                            </VBox>
-
-                            <!-- Card 2 -->
-                            <VBox prefWidth="210.0" prefHeight="120.0" spacing="10.0" styleClass="summary-card">
-
-                                <Label text="Upcoming Deadlines" styleClass="card-title"/>
-
-                                <Label text="4" styleClass="card-number"/>
-
-                                <Label text="Within 7 days" styleClass="card-description"/>
-                            </VBox>
-
-                            <!-- Card 3 -->
-                            <VBox prefWidth="210.0" prefHeight="120.0" spacing="10.0" styleClass="summary-card">
-
-                                <Label text="Overdue Tasks" styleClass="card-title"/>
-
-                                <Label text="2" styleClass="card-number"/>
-
-                                <Label text="Need attention" styleClass="card-description"/>
-                            </VBox>
-
-                            <!-- Card 4 -->
-                            <VBox prefWidth="210.0" prefHeight="120.0" spacing="10.0" styleClass="summary-card">
-
-                                <Label text="Progress Overview" styleClass="card-title"/>
-
-                                <Label text="65%" styleClass="card-number"/>
-
-                                <ProgressBar progress="0.65" maxWidth="Infinity"/>
-                            </VBox>
-
-                        </FlowPane>
-
-                        <!-- Main Dashboard Content -->
-                        <FlowPane fx:id="dashboardPanels" hgap="20.0" vgap="20.0" alignment="TOP_LEFT">
-
-
-                            <!-- Left Panel: Today's Tasks -->
-                            <VBox fx:id="taskPanel" spacing="15.0" prefWidth="500.0" minWidth="280.0" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="dashboard-panel">
-
-
-                                <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                    <Label text="Today's Tasks" styleClass="panel-title"/>
-                                    <Region HBox.hgrow="ALWAYS"/>
-
-                                    <Button text="View All" styleClass="text-button"/>
-                                </HBox>
-
-                                <Separator/>
-                                <!-- Temporary Task Items -->
+                        <Separator/>
+                        <!-- Temporary Task Items -->
 
 
 
-                                <VBox fx:id="taskList2" spacing="12.0" alignment="CENTER_RIGHT" styleClass="task-list">
-                                    <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="task-item">
-                                        <CheckBox/>
-                                        <Label text="Finish dashboard UI"/>
-                                    </HBox>
+                        <VBox fx:id="taskList2" spacing="12.0" alignment="CENTER_RIGHT" styleClass="task-list">
+                            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="task-item">
+                                <CheckBox/>
+                                <Label text="Finish dashboard UI"/>
+                            </HBox>
 
-                                    <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="task-item">
-                                        <CheckBox/>
-                                        <Label text="Review JavaFX code"/>
-                                    </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="task-item">
+                                <CheckBox/>
+                                <Label text="Review JavaFX code"/>
+                            </HBox>
 
-                                    <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="task-item">
-                                        <CheckBox/>
-                                        <Label text="Prepare team meeting"/>
-                                    </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="task-item">
+                                <CheckBox/>
+                                <Label text="Prepare team meeting"/>
+                            </HBox>
 
-                                </VBox>
-
-                            </VBox>
-
-                            <!-- Right Panel: Additional Information -->
-
-                            <VBox fx:id="rightPanel" spacing="20.0" prefWidth="300.0" minWidth="200.0">
-
-                                <!-- Upcoming Deadlines -->
-                                <VBox spacing="12.0" styleClass="dashboard-panel">
-
-                                    <Label text="Upcoming Deadlines" styleClass="panel-title"/>
-                                    <Separator/>
-
-                                    <Label text="No upcoming deadlines"/>
-                                </VBox>
-
-                                <!-- Overdue Tasks -->
-                                <VBox spacing="12.0" styleClass="dashboard-panel">
-
-                                    <Label text="Overdue Tasks" styleClass="panel-title"/>
-                                    <Separator/>
-
-                                    <Label text="No overdue tasks"/>
-                                </VBox>
-
-                                <!-- Recent Projects -->
-                                <VBox spacing="12.0" styleClass="dashboard-panel">
-
-                                    <Label text="Recent Projects" styleClass="panel-title"/>
-                                    <Separator/>
-
-                                    <Label text="No recent projects"/>
-                                </VBox>
-                            </VBox>
-                        </FlowPane>
-
+                        </VBox>
 
                     </VBox>
-                </ScrollPane>
-            </center>
-        </BorderPane>
-    </center>
 
+                    <!-- Right Panel: Additional Information -->
+
+                    <VBox fx:id="rightPanel" spacing="20.0" prefWidth="300.0" minWidth="200.0">
+
+                        <!-- Upcoming Deadlines -->
+                        <VBox spacing="12.0" styleClass="dashboard-panel">
+
+                            <Label text="Upcoming Deadlines" styleClass="panel-title"/>
+                            <Separator/>
+
+                            <Label text="No upcoming deadlines"/>
+                        </VBox>
+
+                        <!-- Overdue Tasks -->
+                        <VBox spacing="12.0" styleClass="dashboard-panel">
+
+                            <Label text="Overdue Tasks" styleClass="panel-title"/>
+                            <Separator/>
+
+                            <Label text="No overdue tasks"/>
+                        </VBox>
+
+                        <!-- Recent Projects -->
+                        <VBox spacing="12.0" styleClass="dashboard-panel">
+
+                            <Label text="Recent Projects" styleClass="panel-title"/>
+                            <Separator/>
+
+                            <Label text="No recent projects"/>
+                        </VBox>
+                    </VBox>
+                </FlowPane>
+
+
+            </VBox>
+        </ScrollPane>
+    </center>
 </BorderPane>

@@ -2,14 +2,8 @@ package team.taskapp;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import team.taskapp.ui.AddTaskWindow;
 import team.taskapp.utils.fileUtils;
 import team.taskapp.views.MainView;
 import team.taskapp.views.View;
