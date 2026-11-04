@@ -2,6 +2,7 @@ package team.taskapp.views;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
+import team.taskapp.App;
 import team.taskapp.ui.AddTaskWindow;
 import team.taskapp.ui.TaskLabel;
 
@@ -11,13 +12,18 @@ public class MainViewController {
     private VBox taskList;
 
     @FXML
-    private void addTask() {
+    public void addTask() {
         //TODO change this to actually add tasks
         AddTaskWindow window = new AddTaskWindow();
         window.showAndWait();
         if (window.getTaskName() != null) {
             taskList.getChildren().add(new TaskLabel(window.getTaskName()));
         }
+    }
+
+    @FXML
+    private void toMyTasks() {
+        App.switchView(new TaskView());
     }
 
 }

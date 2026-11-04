@@ -1,13 +1,9 @@
 package team.taskapp;
 
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import team.taskapp.ui.AddTaskWindow;
 import team.taskapp.utils.fileUtils;
 import team.taskapp.views.MainView;
 import team.taskapp.views.View;
@@ -17,6 +13,7 @@ public class App {
     private static Stage stage;
     private static Scene scene;
 
+    private static AnchorPane content;
     
     private static View view;
 
@@ -29,10 +26,17 @@ public class App {
         stage.setScene(scene);
         stage.show();
 
+        Parent root = fileUtils.loadMainFXML();
+        scene.setRoot(root);
+
         stage.setAlwaysOnTop(true);
         stage.setAlwaysOnTop(false);
         
         switchView(new MainView());
+    }
+
+    public static void setMainContent(AnchorPane content) {
+        App.content = content;
     }
     
     public static void switchView(View newView) {
@@ -41,7 +45,8 @@ public class App {
         }
 
         view = newView;
-        scene.setRoot(newView.getRoot());
+        content.getChildren().clear();
+        content.getChildren().add(newView.getRoot());
         newView.onShow();
     }
     

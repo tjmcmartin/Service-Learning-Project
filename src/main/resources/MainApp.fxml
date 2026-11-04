@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="team.taskapp.MainController"
+
+
+            stylesheets="@MainApp.css"
+
+            prefWidth="1200.0"
+            prefHeight="800.0">
+
+
+    <!-- LEFT: Sidebar -->
+    <left>
+
+        <VBox fx:id="sidebar" prefWidth="230.0" minWidth="65.0" spacing="20.0" styleClass="sidebar">
+
+            <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-header">
+                <Label text="DevFlow" styleClass="sidebar-title"/>
+            </HBox>
+
+            <!-- Workspace -->
+            <VBox spacing="12.0">
+
+                <Label text="WORKSPACE"
+                       styleClass="sidebar-section-title"/>
+
+                <Button text="Today"
+                        maxWidth="Infinity"
+                        styleClass="sidebar-item"/>
+
+                <Button text="All Tasks"
+                        maxWidth="Infinity"
+                        styleClass="sidebar-item"
+                        onAction="#toTaskView"/>
+
+                <Button text="Schedule"
+                        maxWidth="Infinity"
+                        styleClass="sidebar-item"/>
+
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="stat-card">
+                    <Label text="Due Soon" styleClass="stat-label"/>
+                    <Label text="0" styleClass="stat-number"/>
+                </VBox>
+            </VBox>
+
+
+
+            <!-- Task list -->
+            <VBox fx:id="taskList" spacing="12.0">
+
+                <HBox spacing="20.0" alignment="CENTER_LEFT" styleClass="task-header">
+                    <Label fx:id="label" text="My Tasks" styleClass="my-tasks-heading" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+                    <Button text="+ Add Task" onAction="#addTask" styleClass="add-task-button"/>
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+    </left>
+
+    <!-- CENTER: Main Content -->
+    <center>
+        <AnchorPane fx:id="viewContent">
+            <!-- Views will go here -->
+        </AnchorPane>
+    </center>
+
+</BorderPane>
