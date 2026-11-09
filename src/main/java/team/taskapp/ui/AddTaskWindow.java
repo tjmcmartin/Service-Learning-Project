@@ -1,5 +1,6 @@
 package team.taskapp.ui;
 
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -8,32 +9,39 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 
 import java.time.LocalDate;
-import java.util.Locale;
 
 public class AddTaskWindow extends Stage {
 
-    private Label message;
-    private TextField nameField;
-    private ConfirmButtonBar confirmButtonBar;
-    private DatePicker dueDate;
+    private TaskData data;
+
+    private final TitledNode<TextField> nameField;
+    private final TitledNode<DatePicker> dueDate;
+
+    private final ConfirmButtonBar confirmButtonBar;
 
     public AddTaskWindow() {
+
+        data = new TaskData();
 
         setTitle("Add a Task");
         setWidth(300);
         setHeight(250);
 
-        message = new Label("Enter a name for you task");
-        nameField = new TextField("Task Name");
-        confirmButtonBar = new ConfirmButtonBar("Add Task");
-        dueDate = new DatePicker();
+        nameField = new TitledNode<>(new TextField(), "Enter a name for you task");
+        nameField.getNode().setPromptText("Task Name...");
+        Platform.runLater(() -> nameField.getNode().requestFocus());
 
+        dueDate = new TitledNode<>(new DatePicker(), "Due Date");
+
+        confirmButtonBar = new ConfirmButtonBar("Add Task");
         confirmButtonBar.setOnConfirm(e -> {
+            setTaskData();
             close();
         });
         confirmButtonBar.setOnCancel(e -> {
             close();
         });
+
 
 //        nameField.setOnAction(e -> {
 //            name = nameField.getText();
@@ -41,23 +49,29 @@ public class AddTaskWindow extends Stage {
 //        });
 
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(message, nameField, dueDate, confirmButtonBar);
+        layout.getChildren().addAll(nameField, dueDate, confirmButtonBar);
 
         Scene scene = new Scene(layout, 300, 500);
         setScene(scene);
     }
 
-    public TaskData getTaskData() {
-        var data = new TaskData();
-        data.name = (nameField.getText().isBlank()) ? null: nameField.getText();
-        data.dueDate = dueDate.getValue();
+    private void setTaskData() {
+        data.name = (nameField.getNode().getText().isBlank()) ? null: nameField.getNode().getText();
+        data.dueDate = dueDate.getNode().getValue();
+    }
 
+    public TaskData getTaskData() {
         return data;
     }
 
     public static class TaskData {
         public String name;
         public LocalDate dueDate;
+
+        TaskData() {
+            this.name = null;
+            this.dueDate = null;
+        }
     }
 
 }

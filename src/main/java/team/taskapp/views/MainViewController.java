@@ -26,7 +26,6 @@ public class MainViewController {
         System.out.println("Controller instance: " + this);
         System.out.println("taskList: " + taskList);
 
-        //TODO change this to actually add tasks
         AddTaskWindow window = new AddTaskWindow();
         window.showAndWait();
         TaskData data = window.getTaskData();
