@@ -27,11 +27,11 @@ public class AddTaskWindow extends Stage {
         setWidth(300);
         setHeight(250);
 
-        nameField = new TitledNode<>(new TextField(), "Enter a name for you task");
+        nameField = TitledNode.of(TextField.class, "Task Name");
         nameField.getNode().setPromptText("Task Name...");
         Platform.runLater(() -> nameField.getNode().requestFocus());
 
-        dueDate = new TitledNode<>(new DatePicker(), "Due Date");
+        dueDate = TitledNode.of(DatePicker.class, "Due Date");
 
         confirmButtonBar = new ConfirmButtonBar("Add Task");
         confirmButtonBar.setOnConfirm(e -> {
