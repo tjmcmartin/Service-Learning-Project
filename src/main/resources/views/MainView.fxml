@@ -115,7 +115,7 @@
 
 
 
-                        <VBox fx:id="taskList2" spacing="12.0" alignment="CENTER_RIGHT" styleClass="task-list">
+                        <VBox fx:id="taskList" spacing="12.0" alignment="CENTER_RIGHT" styleClass="task-list">
                             <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="task-item">
                                 <CheckBox/>
                                 <Label text="Finish dashboard UI"/>
